@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 public class Log_In_Page_Factory {
 
     // Initialises the objects so you can reference test.whatever within your classes rather than driver.findelement.by etc.
-    WebDriver driver;
+    private WebDriver driver;
 
     @FindBy(id = "UserName")
     public WebElement userName;

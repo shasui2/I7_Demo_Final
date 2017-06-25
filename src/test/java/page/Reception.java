@@ -7,16 +7,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -29,7 +24,7 @@ public class Reception {
     public void navigateReception(WebDriver driver, WebDriverWait wait, ExtentReports report, ExtentTest test) throws InterruptedException {
 
 
-        test = report.startTest("Reception.");
+        report.startTest("Reception.");
         test.log(LogStatus.INFO, "Starting Reception Test.");
         System.out.println("Starting Reception Test.");
 
@@ -55,7 +50,7 @@ public class Reception {
 
     public void importBags(WebDriver driver, WebDriverWait wait, ExtentReports report, ExtentTest test) throws InterruptedException, SQLException, ClassNotFoundException {
 
-        test = report.startTest("Reception.");
+        report.startTest("Reception.");
 
         String[] bagID = new String[10];
         Calendar cal;
