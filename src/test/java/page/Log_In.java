@@ -5,12 +5,10 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import page.logInPageFactory;
+import pageFactories.Log_In_Page_Factory;
 
 /**
  * Created by Jamie.Shannon on 20/06/2017.
@@ -18,13 +16,11 @@ import page.logInPageFactory;
  */
 public class Log_In {
 
-    private Select select;
-    private WebElement element;
-    logInPageFactory logIn;
+    Log_In_Page_Factory logIn;
 
     public void logIn (WebDriver driver, WebDriverWait wait, ExtentTest test, ExtentReports report) throws InterruptedException {
 
-        logIn = new logInPageFactory(driver);
+        logIn = new Log_In_Page_Factory(driver);
 
         // Enter Log In details.
         test = report.startTest("Log in.");

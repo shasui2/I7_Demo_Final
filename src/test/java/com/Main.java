@@ -1,4 +1,4 @@
-package page;
+package com;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -11,6 +11,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import page.Browser_Info;
+import page.IE_Browser;
+import page.Log_In;
+import page.Reception;
 
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
