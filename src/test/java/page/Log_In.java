@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import page.logInPageFactory;
 
 /**
  * Created by Jamie.Shannon on 20/06/2017.
@@ -19,18 +20,21 @@ public class Log_In {
 
     private Select select;
     private WebElement element;
+    logInPageFactory logIn;
 
     public void logIn (WebDriver driver, WebDriverWait wait, ExtentTest test, ExtentReports report) throws InterruptedException {
+
+        logIn = new logInPageFactory(driver);
 
         // Enter Log In details.
         test = report.startTest("Log in.");
         test.log(LogStatus.INFO, "Logging in...");
         test.log(LogStatus.INFO, "Entering username.");
-        driver.findElement(By.id("UserName")).sendKeys("ecmlab\\jamie.shannon");
+        logIn.userName.sendKeys("ecmlab\\jamie.shannon");
         test.log(LogStatus.INFO, "Entering password.");
-        driver.findElement(By.id("Password")).sendKeys("Nikki123");
+        logIn.password.sendKeys("Nikki123");
         test.log(LogStatus.INFO, "Clicking Log In.");
-        driver.findElement(By.xpath("//*[@id=\"login-dialog-main\"]/fieldset/div[3]/button")).click();
+        logIn.submit.click();
 
         // Wait until Cash Centre select box appears.
         try {
@@ -42,14 +46,12 @@ public class Log_In {
         }
 
         // Select processing centre.
-        element = driver.findElement(By.xpath("//*[@id=\"login-dialog-main\"]/fieldset/div[3]/div[2]/span/span[1]"));
-        System.out.println("Element is: " + element);
-        element.click();
+        logIn.centre.click();
 
         System.out.println("Selecting VSO 188..");
-        driver.findElement(By.xpath("//*[@id=\"login-dialog-main\"]/fieldset/div[3]/div[2]/span/span[2]/span[7]")).click();
+        logIn.vso188.click();
         test.log(LogStatus.INFO, "Clicking Select.");
-        driver.findElement(By.xpath("//*[@id=\"login-dialog-main\"]/fieldset/div[4]/button")).click();
+        logIn.select.click();
 
         // Wait for DeLaRue Logo to appear.
         try {
@@ -69,8 +71,8 @@ public class Log_In {
         }
 
         // Select Inventory Location
-        driver.findElement(By.xpath("//*[@id=\"area-header\"]/div[1]/i[2]")).click();
-        driver.findElement(By.xpath("//*[@id=\"area-header\"]/div[2]/div/p[1]/a")).click();
+        logIn.inventoryLocation.click();
+        logIn.everywhere.click();
         test.log(LogStatus.INFO, "Inventory Location selected.");
 
         System.out.println("Thread sleeping for 1sec..");
